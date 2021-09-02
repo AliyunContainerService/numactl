@@ -22,6 +22,16 @@ interleave.)
 See the manpages [`numactl.8`](https://linux.die.net/man/8/numactl) and
 [`numa.3`](https://linux.die.net/man/3/numa) for details.
 
+# concontr-migarate
+
+yum install numactl-devel numactl -y
+
+gcc -c threadpool.c -std=c99
+
+gcc concurrent-migratepages.c threadpool.o -o concurrent-migratepages -lnuma -lpthread
+
+./concurrent-migratepages 1234 1
+
 # License, Copyrights, Acknowledgements
 
 `numactl` and the demo programs are under the GNU General Public License, v.2.
